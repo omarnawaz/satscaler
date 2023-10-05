@@ -36,11 +36,12 @@ Alternatively you can run the "satscaler.py" function straight from the command 
 ## Data
 The required data for this project is located in the data/ directory. It includes:
 
-pm25.csv: The old satellite-derived PM2.5 data used in FATE.
+-pm25.csv: The old satellite-derived PM2.5 data used in FATE.
 population.csv: Population data.
-mask.csv: Mask file used to match the grid to specific countries.
-Contributing
+-mask.csv: Mask file used to match the grid to specific countries.
+
+## Contributing
 Contributions to this project are welcome. If you find any issues or have suggestions for improvement, please open an issue on the GitHub repository.
 
-##License
+## License
 This project is licensed under the MIT License.
