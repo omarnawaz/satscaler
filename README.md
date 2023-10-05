@@ -34,11 +34,15 @@ sf = calculate_scale_factor(
 Alternatively you can run the "satscaler.py" function straight from the command line. This assumes that your data is stored in "../../data/"
 
 ## Data
-The required data for this project is located in the data/ directory. It includes:
+The required data for this project is placed in the ../../data/ directory and is stored in the "inputs" and "resources" directories in the FATE file structure. It includes:
 
-- pm25.csv: The old satellite-derived PM2.5 data used in FATE.
-- population.csv: Population data.
-- mask.csv: Mask file used to match the grid to specific countries.
+- fate_inputs/pm25_satellite_grid.nc: The old satellite-derived PM2.5 data used in FATE.
+- fate_inputs/population_fine.nc: Fine resolution population data used in FATE.
+- fate_inputs/country_mask.nc: Mask file used to match the grid to specific countries.
+
+Additionally, the user should download the current (V5.GL.03) satellite-derive surface-level pm2.5 from WashU at: https://sites.wustl.edu/acag/datasets/surface-pm2-5/. The global product at 0.1° x 0.1° resolution for a base year of 2021 is used in this project currently; however, any file can be used. This file is stored in
+
+- new_satellite_data/V5GL03.HybridPM25c_0p10.Global.202101-202112.nc
 
 ## Contributing
 Contributions to this project are welcome. If you find any issues or have suggestions for improvement, please open an issue on the GitHub repository.
