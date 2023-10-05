@@ -29,6 +29,7 @@ sf = calculate_scale_factor(
     out_dir=out_dir,
 )
 # Results will be saved to "out_dir"
+```
 
 Alternatively you can run the "satscaler.py" function straight from the command line. This assumes that your data is stored in "../../data/"
 
