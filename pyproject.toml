@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "satscaler"
+version = "0.1.0"
+description = "This module will calculate a scaling factor to apply to the old FATE adjoint coefficients."
+authors = ["Omar Nawaz <nawaz.muhammad@email.gwu.edu>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.10,<3.12"
+numpy = "^1.26.0"
+pandas = "^2.1.1"
+xarray = "^2023.9.0"
+netCDF4 = "^1.6.4"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
