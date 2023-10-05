@@ -4,7 +4,7 @@ This project calculates a scaling factor to convert the adjoint sensitivities fr
 
 ## Installation
 
-1. Clone the repository: git clone https://github.com/omar_nawaz/satscaler.git
+1. Clone the repository: git clone https://github.com/omarnawaz/satscaler.git
 2. Install the required dependencies: (pip install .) or (poetry install)
 
 
