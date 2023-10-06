@@ -23,9 +23,9 @@ from scaler import calculate_scale_factor
 # %%
 # Constants
 base_dir = "./"
-fate_dir = f"{base_dir}../data/fate_inputs/"
-sat_dir = f"{base_dir}../data/new_satellite_data/"
-out_dir = f"{base_dir}../data/scaling_factor/"
+fate_dir = f"{base_dir}../../data/fate_inputs/"
+sat_dir = f"{base_dir}../../data/new_satellite_data/"
+out_dir = f"{base_dir}../../data/scaling_factor/"
 
 # %%
 # Main

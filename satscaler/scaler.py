@@ -62,7 +62,8 @@ def calculate_scale_factor(old_pm25, new_pm25, pop, mask, old_sf, out_dir=None):
         sf[sf.index == i].iloc[0] if (factor != 1) & (any(sf.index == i)) else 1
         for i, factor in old_sf["pm_sat_rsfct"].items()
     ]
+    new_sf = new_sf.drop(columns="id")
     # Write the new scaling factor to csv
     if out_dir:
-        new_sf.to_csv(f"{out_dir}rescaling_factors")
-    return sf
+        new_sf.to_csv(f"{out_dir}rescaling_factors.csv")
+    return new_sf
