@@ -29,7 +29,7 @@ def calculate_country_pm25(df, pop, mask):
     return pd.concat(countries).set_index("id")
 
 
-def calculate_scale_factor(old_pm25, new_pm25, pop, mask, out_dir=None):
+def calculate_scale_factor(old_pm25, new_pm25, pop, mask, old_sf, out_dir=None):
     """
     Calculates scale factor based on the ratio of country-scale population-weighted pm2.5 from the old product to the new product
 
@@ -55,6 +55,14 @@ def calculate_scale_factor(old_pm25, new_pm25, pop, mask, out_dir=None):
     old_country_pm25 = calculate_country_pm25(old_pm25, pop, mask)
     new_country_pm25 = calculate_country_pm25(new_pm25, pop, mask)
     sf = new_country_pm25.pw_pm / old_country_pm25.pw_pm
+    sf = sf.rename({"pw_pm": "pm_sat_rsfct"})
+    new_sf = old_sf.copy()
+    # Adds new scaling factor to old file structure retaining values of 1.
+    new_sf["pm_sat_rsfct"] = [
+        sf[sf.index == i].iloc[0] if (factor != 1) & (any(sf.index == i)) else 1
+        for i, factor in old_sf["pm_sat_rsfct"].items()
+    ]
+    # Write the new scaling factor to csv
     if out_dir:
-        sf.to_csv(f"{out_dir}satellite_pm_scaling_factors")
+        new_sf.to_csv(f"{out_dir}rescaling_factors")
     return sf

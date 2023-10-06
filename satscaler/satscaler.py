@@ -15,6 +15,7 @@ Functions:
 # %%
 # Imports
 import numpy as np
+import pandas as pd
 
 from data_reader import read_nc
 from scaler import calculate_scale_factor
@@ -22,9 +23,9 @@ from scaler import calculate_scale_factor
 # %%
 # Constants
 base_dir = "./"
-fate_dir = f"{base_dir}../../data/fate_inputs/"
-sat_dir = f"{base_dir}../../data/new_satellite_data/"
-out_dir = f"{base_dir}../../data/scaling_factor/"
+fate_dir = f"{base_dir}../data/fate_inputs/"
+sat_dir = f"{base_dir}../data/new_satellite_data/"
+out_dir = f"{base_dir}../data/scaling_factor/"
 
 # %%
 # Main
@@ -41,6 +42,8 @@ if __name__ == "__main__":
     population_data = read_nc(f"{fate_dir}population_fine.nc", "fine_pop", "population")
     # Read in country mask data
     mask_data = read_nc(f"{fate_dir}country_mask.nc", ["mask", "frac"])
+    # Old scaling factors
+    old_sf = pd.read_csv(f"{fate_dir}rescaling_factors.csv")
 
     # Calculate scale factor
     sf = calculate_scale_factor(
@@ -48,5 +51,6 @@ if __name__ == "__main__":
         new_pm25=new_pm25_data,
         pop=population_data,
         mask=mask_data,
+        old_sf=old_sf,
         out_dir=out_dir,
     )
